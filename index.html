@@ -146,7 +146,7 @@ tr.curitem td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
     <span class="hint">Hover over or tap a <span class="tip" tabindex="0" data-tip="Like this. Dotted terms open more detail.">dotted term</span> for detail. Press <kbd>←</kbd> <kbd>→</kbd> for items and <kbd>↑</kbd> <kbd>↓</kbd> for sections.</span>
   </header>
 
-  <section>
+  <section id="highlights">
     <h2>Highlights</h2>
     <div class="stats">
       <div class="stat"><span class="n">15 yrs</span><span class="l">Backend, cloud and architecture</span></div>
@@ -158,7 +158,7 @@ tr.curitem td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
     </div>
   </section>
 
-  <section>
+  <section id="ai-work">
     <h2>AI and agentic work</h2>
     <ul>
       <li><b>Enterprise GenAI agent:</b> Built a GenAI agent for a business-critical enterprise application.</li>
@@ -171,7 +171,7 @@ tr.curitem td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
     </ul>
   </section>
 
-  <section>
+  <section id="hackathon">
     <h2>TM Forum Trustworthy AI Hackathon 2026</h2>
     <div class="card">
       <p><span class="chip">Finalist · top 6</span> &nbsp;Challenge: <b>Agentic Assurance, The Quest for Proof</b>. Dallas, October 4–7, 2026, with AWS, NVIDIA, ServiceNow, Accenture and Dell as partners.</p>
@@ -184,7 +184,7 @@ tr.curitem td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
     </div>
   </section>
 
-  <section>
+  <section id="experience">
     <h2>Experience</h2>
     <div class="card">
       <div class="job"><span class="when">2022 – now</span><div class="what">
@@ -214,7 +214,7 @@ tr.curitem td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
     </div>
   </section>
 
-  <section>
+  <section id="fit">
     <h2>Fit for the Senior AI Engineer role</h2>
     <div class="tbl"><table>
       <tr><th>Role asks for</th><th>My experience</th></tr>
@@ -230,7 +230,7 @@ tr.curitem td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
     </table></div>
   </section>
 
-  <section>
+  <section id="skills">
     <h2>Skills</h2>
     <div class="skills">
       <div><span class="k">AI / GenAI</span><p>LLM agents, tool calling, prompt engineering, Azure AI Foundry, GitHub Copilot, Claude Code, MCP, PyTorch, scikit-learn, TensorFlow</p></div>
@@ -242,7 +242,7 @@ tr.curitem td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
     </div>
   </section>
 
-  <section>
+  <section id="education">
     <h2>Learning and education</h2>
     <ul>
       <li><b>Building an LLM from scratch:</b> Working through Sebastian Raschka's <i>Build a Large Language Model (From Scratch)</i> in PyTorch, covering tokenization, attention, a GPT-style model, pretraining and fine-tuning.</li>
@@ -366,6 +366,8 @@ tr.curitem td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
     const it = e.target.closest('.navitem');
     it ? mark(it.closest('.navsec'), it) : mark(null, null);
   });
+  const target = location.hash && document.getElementById(location.hash.slice(1));
+  if (target && secs.includes(target)) mark(target, null);
   syncToc();
 })();
 </script>
