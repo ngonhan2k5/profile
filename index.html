@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nhan Ngo · AI Engineer Profile</title>
+<meta name="description" content="Nhan Ngo: Lead Software Engineer moving into Senior AI Engineering. Fraud and risk platforms, Azure at scale, governed GenAI agents.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&family=DM+Mono:wght@500&display=swap">
+<style>
+/* Layout: single reading column with a fixed section index on wide screens; dotted terms open detail tips */
+*, *::before, *::after { box-sizing: border-box; }
+:root {
+  /* Fall, kept bright: warm paper ground, maple and golden-amber accents, a touch of pine */
+  --bg: #fffaf4; --surface: #ffffff; --fg: #2b2119; --muted: #6f5e51;
+  --line: #f0e2d3; --accent: #b4491a; --accent-soft: #fdeadb;
+  --sun: #e0a01c; --sun-soft: #fdf0d3; --mint: #3f6b46; --mint-soft: #e8f0e3;
+  --shadow: 120 70 30;
+  --tip-bg: #ffffff; --tip-fg: #2b2119;
+  --display: "Outfit", "Segoe UI", system-ui, sans-serif;
+  --body: "Nunito Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "DM Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 var(--body); }
+.wash { position: absolute; inset: 0 0 auto 0; height: 380px; z-index: -1; pointer-events: none;
+  background: radial-gradient(55% 100% at 12% 0%, #ffe3c6 0%, transparent 70%), radial-gradient(45% 85% at 88% 8%, #fff0c4 0%, transparent 70%), radial-gradient(35% 60% at 55% 0%, #edf2e2 0%, transparent 70%); }
+/* Leaf shape, reused for heading markers and the header leaves */
+.leaf { display: block; width: 14px; height: 14px; border-radius: 0 85% 0 85%; background: var(--accent); }
+.leaves { position: absolute; top: 28px; right: max(16px, calc(50vw - 560px)); width: 260px; height: 220px; z-index: -1; pointer-events: none; }
+.leaves .leaf { position: absolute; opacity: .85; transform-origin: 50% 0; animation: sway 7s ease-in-out infinite alternate; }
+.leaves .leaf:nth-child(1) { top: 10px;  left: 30px;  width: 26px; height: 26px; transform: rotate(-25deg); }
+.leaves .leaf:nth-child(2) { top: 64px;  left: 150px; width: 18px; height: 18px; background: var(--sun); transform: rotate(40deg); animation-delay: -2s; }
+.leaves .leaf:nth-child(3) { top: 128px; left: 70px;  width: 22px; height: 22px; background: var(--mint); opacity: .6; transform: rotate(10deg); animation-delay: -4s; }
+.leaves .leaf:nth-child(4) { top: 22px;  left: 210px; width: 14px; height: 14px; background: #d06a2a; transform: rotate(-60deg); animation-delay: -1s; }
+.leaves .leaf:nth-child(5) { top: 176px; left: 190px; width: 16px; height: 16px; background: var(--sun); opacity: .7; transform: rotate(75deg); animation-delay: -5s; }
+@keyframes sway { from { translate: 0 0; rotate: -6deg; } to { translate: 6px 8px; rotate: 8deg; } }
+@media (max-width: 900px) { .leaves { display: none; } }
+@media (prefers-reduced-motion: reduce) { .leaves .leaf { animation: none; } }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+.wrap { position: relative; max-width: 760px; margin: 0 auto; padding-inline: 16px; padding-block: 56px 72px; display: grid; gap: 40px; }
+header { display: grid; gap: 8px; }
+.eyebrow { font: 500 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+h1 { font: 700 clamp(34px, 7vw, 48px)/1.05 var(--display); letter-spacing: -.01em; margin: 0; text-wrap: balance; }
+.role { font: 600 18px/1.3 var(--display); color: var(--muted); margin: 0; }
+.contact { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 15px; color: var(--muted); }
+.contact a { color: var(--accent); }
+.lead { font-size: 18px; max-width: 65ch; margin: 4px 0 0; }
+section { display: grid; gap: 14px; }
+h2 { font: 600 23px/1.25 var(--display); margin: 0; display: flex; align-items: center; gap: 10px; }
+h2::before { content: ""; width: 13px; height: 13px; border-radius: 0 85% 0 85%; background: var(--accent); flex: none; transform: rotate(-10deg); }
+section:nth-of-type(3n+2) h2::before { background: var(--sun); }
+section:nth-of-type(3n) h2::before { background: var(--mint); }
+h3 { font: 600 17px/1.3 var(--display); margin: 0; }
+p { margin: 0; }
+b { font-weight: 600; }
+ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+a { color: var(--accent); }
+
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 600px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 2px 10px rgb(var(--shadow) / .07); padding: 12px 14px; display: grid; gap: 2px; min-width: 0; }
+.stat .n { font: 700 26px/1.1 var(--display); color: var(--accent); font-variant-numeric: tabular-nums; }
+.stat .l { font-size: 14px; color: var(--muted); }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 4px 18px rgb(var(--shadow) / .08); padding: 20px 22px; display: grid; gap: 10px; }
+.job { display: grid; grid-template-columns: 128px 1fr; gap: 14px; padding-block: 12px; border-top: 1px solid var(--line); }
+.job:first-of-type { border-top: 0; padding-top: 0; }
+.job .when { font: 500 12px/1.7 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.job .what { display: grid; gap: 6px; min-width: 0; }
+.job .org { color: var(--muted); font-size: 15px; }
+@media (max-width: 560px) { .job { grid-template-columns: 1fr; gap: 4px; } }
+
+.tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); box-shadow: 0 2px 10px rgb(var(--shadow) / .06); }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 9px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+th { font: 500 12px var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+
+.skills { display: grid; gap: 8px; }
+.skills div { display: grid; grid-template-columns: 128px 1fr; gap: 14px; }
+.skills .k { font: 500 12px/1.8 var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--accent); }
+@media (max-width: 560px) { .skills div { grid-template-columns: 1fr; gap: 0; } }
+.chip { display: inline-block; font: 600 12px var(--mono); background: var(--sun-soft); color: #8a5300; padding: 2px 8px; border-radius: 99px; }
+footer { color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: 14px; }
+.hint { font: 500 12px var(--mono); color: var(--muted); }
+kbd { font: 500 11px var(--mono); border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; background: var(--surface); color: var(--fg); }
+
+/* Tooltips */
+.tip { text-decoration: underline dotted var(--sun); text-decoration-thickness: 1.5px; text-underline-offset: 3px; cursor: help; border-radius: 3px; }
+.tip:hover, .tip.on { background: var(--sun-soft); }
+.tip:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+#tipbox { position: fixed; z-index: 10; max-width: min(340px, calc(100vw - 32px)); background: var(--tip-bg); color: var(--tip-fg);
+  font: 14px/1.5 var(--body); padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgb(var(--shadow) / .18); pointer-events: none; }
+#tipbox ul { padding-left: 16px; gap: 3px; }
+
+/* Keyboard navigation */
+.navsec { scroll-margin-top: 16px; border-radius: 10px; }
+.navsec:focus { outline: none; }
+.navsec.cur { outline: 2px dashed var(--accent); outline-offset: 8px; }
+.navitem { scroll-margin-block: 24px; border-radius: 6px; transition: background-color .15s; }
+.navitem.curitem:not(tr) { outline: 2px solid var(--accent); outline-offset: 3px; }
+li.curitem, .job.curitem, .stat.curitem { background: var(--accent-soft); }
+tr.curitem td { background: var(--accent-soft); }
+tr.curitem td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+@media (prefers-reduced-motion: reduce) { .navitem { transition: none; } }
+
+/* Section index, left side on wide screens */
+#toc { display: none; }
+@media (min-width: 1140px) {
+  #toc { display: grid; gap: 2px; position: fixed; top: 40px; width: 200px;
+    left: max(16px, calc(50vw - 380px - 232px)); max-height: calc(100vh - 80px); overflow-y: auto; }
+  #toc .lbl { font: 500 11px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 0 10px 8px; }
+  #toc button { all: unset; box-sizing: border-box; display: grid; grid-template-columns: 22px 1fr; gap: 6px; align-items: baseline;
+    padding: 6px 10px; border-radius: 6px; cursor: pointer; color: var(--muted); font: 15px/1.3 var(--body); border-left: 2px solid transparent; }
+  #toc button .n { font: 500 12px var(--mono); font-variant-numeric: tabular-nums; }
+  #toc button:hover { background: var(--accent-soft); color: var(--fg); }
+  #toc button:focus-visible { outline: 2px solid var(--accent); }
+  #toc button.on { color: var(--accent); background: var(--accent-soft); border-left-color: var(--accent); font-weight: 600; }
+  #toc .keys { font: 500 11px/1.8 var(--mono); color: var(--muted); padding: 12px 10px 0; border-top: 1px solid var(--line); margin-top: 8px; }
+}
+</style>
+</head>
+<body>
+<div class="wash" aria-hidden="true"></div>
+<div class="leaves" aria-hidden="true"><span class="leaf"></span><span class="leaf"></span><span class="leaf"></span><span class="leaf"></span><span class="leaf"></span></div>
+<nav id="toc" aria-label="Sections"><span class="lbl">Index</span></nav>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Candidate profile · Senior AI Engineer</span>
+    <h1>Nhan Ngo</h1>
+    <p class="role">Lead Software Engineer · Solution Architect · GenAI &amp; agentic systems</p>
+    <div class="contact">
+      <span>Allen, Texas</span>
+      <span>ngonhan2k5@gmail.com</span>
+      <a href="https://www.linkedin.com/in/ngonhan">LinkedIn</a>
+      <a href="https://github.com/ngonhan2k5">GitHub</a>
+    </div>
+    <div class="contact">
+      <span>Projects:</span>
+      <a href="https://github.com/ngonhan2k5/her-personal-assistant-ai">Her, a voice assistant agent</a>
+    </div>
+    <p class="lead">I have 15 years of experience building backend and cloud systems, and for the last 5+ years I've worked on AT&amp;T's real-time fraud and risk platform. I now build GenAI agents, tools and governance controls, and I want to make production AI my main focus.</p>
+    <span class="hint">Hover over or tap a <span class="tip" tabindex="0" data-tip="Like this. Dotted terms open more detail.">dotted term</span> for detail. Press <kbd>←</kbd> <kbd>→</kbd> for items and <kbd>↑</kbd> <kbd>↓</kbd> for sections.</span>
+  </header>
+
+  <section>
+    <h2>Highlights</h2>
+    <div class="stats">
+      <div class="stat"><span class="n">15 yrs</span><span class="l">Backend, cloud and architecture</span></div>
+      <div class="stat"><span class="n">5+ yrs</span><span class="l">Real-time fraud and risk platform</span></div>
+      <div class="stat"><span class="n"><span class="tip" tabindex="0" data-tip="Own the API inventory for the platform.|Technical approver for architecture and impact reviews on enterprise projects.">Architect</span></span><span class="l">Enterprise fraud and risk APIs</span></div>
+      <div class="stat"><span class="n"><span class="tip" tabindex="0" data-tip="Led the move of a business-critical platform to Azure Kubernetes Service and managed services.|Awarded the AT&amp;T Optimum Award, Gold (team prize).">Azure AKS</span></span><span class="l">Led the migration of a business-critical platform</span></div>
+      <div class="stat"><span class="n"><span class="tip" tabindex="0" data-tip="TM Forum Innovate Americas 2026, Trustworthy AI &amp; Data Hackathon, Dallas, Oct 4–7.|Finished a few points behind the winner.">Top 6</span></span><span class="l">TM Forum Trustworthy AI Hackathon 2026</span></div>
+      <div class="stat"><span class="n">~1 hr/day</span><span class="l">Saved by my AI workflow for architecture calls</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>AI and agentic work</h2>
+    <ul>
+      <li><b>Enterprise GenAI agent:</b> Built a GenAI agent for a business-critical enterprise application.</li>
+      <li><b><span class="tip" tabindex="0" data-tip="Covers 3–5 solution-architecture calls a day.|Turns each Copilot meeting recap into takeaways and their impact on our application.|Tags each item by matter and domain. The workflow proposes tags and I confirm them.|Keeps one current solution per matter as discussion evolves, then produces a weekly report for my manager.">Solution architecture call workflow</span>:</b> Each call is documented automatically and classified by matter and domain. Scattered discussion becomes one current solution per matter and a weekly report for my manager. It saves about 1 hour a day.</li>
+      <li><b>Application knowledge base:</b> I manage and enrich the knowledge base for our application, and outcomes from architecture calls feed back into it.</li>
+      <li><b><span class="tip" tabindex="0" data-tip="Written in Python and used through GitHub Copilot.|They cover work tracking, read-only database queries, log search and test request generation.">About 10 agent tools</span> and <span class="tip" tabindex="0" data-tip="They package fraud domain knowledge, such as rule analysis and case lookup, for the AI assistant.">3 domain skills</span>:</b> These give AI assistants safe access to engineering systems and fraud domain knowledge.</li>
+      <li><b>Guardrails by design:</b> Database access is read-only, and example requests use synthetic data only.</li>
+      <li><b>AI across the SDLC:</b> I use AI from design documents through development, testing, monitoring and CI/CD, with GitHub Copilot.</li>
+      <li><b><span class="tip" tabindex="0" data-tip="Personal voice assistant, 2026.|Web search (Brave) and weather (wttr.in). Creates reminders, to-dos and notes.|GPT-4o and Claude models through Azure AI Foundry, with tool calling. Runs on Android and iOS.">Voice assistant agent ("Her")</span>:</b> A full-stack agent on Azure AI Foundry with tool calling. <a href="https://github.com/ngonhan2k5/her-personal-assistant-ai">Repo</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>TM Forum Trustworthy AI Hackathon 2026</h2>
+    <div class="card">
+      <p><span class="chip">Finalist · top 6</span> &nbsp;Challenge: <b>Agentic Assurance, The Quest for Proof</b>. Dallas, October 4–7, 2026, with AWS, NVIDIA, ServiceNow, Accenture and Dell as partners.</p>
+      <ul>
+        <li><b>Problem:</b> Three AI agents on <span class="tip" tabindex="0" data-tip="Customer Experience, Composable IT and Autonomous Network agents on AWS Bedrock AgentCore.|Every model call goes through a shared model gateway with guardrails. Models: NVIDIA Nemotron.">AWS Bedrock AgentCore</span> resolve network faults together. How can an auditor prove they followed policy?</li>
+        <li><b>What we built:</b> A control layer with three controls, each judged against a threshold frozen before the run: <span class="tip" tabindex="0" data-tip="Every call is linked by action ID across the ledger, the policy log and the gateway log, with no silent gap over 30 seconds.">event traceability</span>, <span class="tip" tabindex="0" data-tip="Agent latency compared against a frozen baseline. A second method tests whole three-agent chain runs.">drift</span> and a <span class="tip" tabindex="0" data-tip="A per-run token cap, counted from the gateway's own logs rather than from what the agents report.">token cap</span>. A control test tool answers "was control N satisfied for this run?" with PASS, BREACH or NO EVIDENCE, plus the records behind the verdict.</li>
+        <li><b>My role:</b> <span class="tip" tabindex="0" data-tip="AWS Workshop Studio lab: one AWS account per team and an EKS cluster running the TM Forum ODA Canvas. Every model and tool call goes through the MoDaaS gateway.|Set up the lab with kubectl: platform checks, Nemotron model approvals and the first governed tool.|Deployed the 3 reference agents and ran the first fault scenarios.|Supported the token-cap calibration and reviewed the control test tool and our agent.">Platform lead</span>. I built the <span class="tip" tabindex="0" data-tip="Reserves token budget before each model call and commits the actual use after it.|Denies the call when the per-run cap would be exceeded.">inline token-spend guard</span> in our own agent, which also hands decisions to a person when it shouldn't decide alone.</li>
+        <li><b>Approach:</b> Policy decisions stay outside the execution path: a register, then a stateless evaluator, then an evidence ledger, then a query tool. We tested the guardrails with adversarial inputs generated by Nemotron and published an honest list of gaps.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="card">
+      <div class="job"><span class="when">2022 – now</span><div class="what">
+        <h3>Lead Application Development, Application Architecture</h3><span class="org">AT&amp;T Services · Plano, TX</span>
+        <p>Solution architect for AT&amp;T's business-critical real-time fraud and risk platform. Led the <span class="tip" tabindex="0" data-tip="Built the bootstrap, skeleton and pilot Azure DevOps pipeline.|Moved the platform onto managed Azure services.|Separated configuration from code, tuned pod resources and enabled horizontal autoscaling.">Azure/AKS migration</span> and introduced <span class="tip" tabindex="0" data-tip="Grafana Loki for high-volume logging.|Substantially cheaper than Azure Log Analytics or a self-hosted Kibana.">Loki logging</span>, which cut logging costs. Now bringing GenAI into the application and the engineering workflow.</p>
+      </div></div>
+      <div class="job"><span class="when">2021 – 2022</span><div class="what">
+        <h3>Senior Software Engineer (contractor for AT&amp;T)</h3><span class="org">Prudent Technology and Services</span>
+        <p>Built Java microservices on the same fraud and risk platform, including third-party integrations and CI/CD pipelines.</p>
+      </div></div>
+      <div class="job"><span class="when">2020 – 2021</span><div class="what">
+        <h3>Java Software Engineer</h3><span class="org">Flexton · Sam's Club membership re-engineering</span>
+        <p>Built reactive REST APIs and batch jobs on Azure with WebFlux, Cosmos DB and Service Bus, following TDD.</p>
+      </div></div>
+      <div class="job"><span class="when">2012 – 2019</span><div class="what">
+        <h3>Technical Lead</h3><span class="org">Washin Engine · e-commerce, Japan and Vietnam</span>
+        <p>Owned architecture, zero-downtime CI/CD and performance for e-commerce systems handling 300K page views a day. Integrated payments (Amazon Pay, Alipay) and Solr search.</p>
+      </div></div>
+      <div class="job"><span class="when">2011 – 2012</span><div class="what">
+        <h3>Lead Java Developer</h3><span class="org">Global Network Technologies · ad network</span>
+        <p>Led an ad network serving millions of ads, with Hadoop MapReduce analytics for impressions, click-through and conversions.</p>
+      </div></div>
+      <div class="job"><span class="when">2007 – 2011</span><div class="what">
+        <h3>Senior Programmer</h3><span class="org">Alpha-Shinyo for NTT Data · Tokyo</span>
+        <p>Built and customized <b>loan and collection systems for about 20 Japanese banks</b>, including an Oracle migration and SQL tuning.</p>
+      </div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Fit for the Senior AI Engineer role</h2>
+    <div class="tbl"><table>
+      <tr><th>Role asks for</th><th>My experience</th></tr>
+      <tr><td>AI governance, guardrails</td><td>Hackathon controls with frozen thresholds and inline enforcement; read-only tools and synthetic data at work</td></tr>
+      <tr><td>Agentic systems, tool calling</td><td>An enterprise GenAI agent, ~10 tools and 3 skills, a voice assistant agent, a multi-agent hackathon platform</td></tr>
+      <tr><td>Knowledge engineering</td><td>Own the application knowledge base; my call workflow keeps it current</td></tr>
+      <tr><td>Fraud and risk domain</td><td>5+ years on AT&amp;T's real-time fraud platform</td></tr>
+      <tr><td>Microsoft Azure</td><td>Led an AKS migration onto managed Azure services and Azure DevOps; use Azure AI Foundry</td></tr>
+      <tr><td>Regulated environments</td><td>Loan systems for Japanese banks; enterprise compliance at AT&amp;T</td></tr>
+      <tr><td>Observability, cost</td><td>Lower-cost, high-volume logging with Loki; drift and token-spend controls</td></tr>
+      <tr><td>Data and streaming</td><td>Kafka, Event Hub, MongoDB, Cosmos DB, Redis, Spark, Hadoop</td></tr>
+      <tr><td>Business value</td><td>About 1 hour a day saved; weekly decision reports for management</td></tr>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skills">
+      <div><span class="k">AI / GenAI</span><p>LLM agents, tool calling, prompt engineering, Azure AI Foundry, GitHub Copilot, Claude Code, MCP, PyTorch, scikit-learn, TensorFlow</p></div>
+      <div><span class="k">Languages</span><p>Java, Python, JavaScript, SQL, Bash, PHP</p></div>
+      <div><span class="k">Backend</span><p>Spring Boot, WebFlux, microservices, REST, event-driven design, CQRS</p></div>
+      <div><span class="k">Cloud, DevOps</span><p>Azure (AKS, messaging, caching, DevOps, AI Foundry), AWS, GCP, Docker, Kubernetes, CI/CD</p></div>
+      <div><span class="k">Data</span><p>Kafka, MongoDB, Cosmos DB, Redis, Oracle, MySQL, Solr, Spark, Hadoop</p></div>
+      <div><span class="k">Observability</span><p>Grafana, Loki, Kibana, Application Insights</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Learning and education</h2>
+    <ul>
+      <li><b>Building an LLM from scratch:</b> Working through Sebastian Raschka's <i>Build a Large Language Model (From Scratch)</i> in PyTorch, covering tokenization, attention, a GPT-style model, pretraining and fine-tuning.</li>
+      <li><b>Voice LLM research:</b> Comparing speech-to-text, LLM and text-to-speech pipelines with end-to-end speech models, with a focus on latency in real-time conversation.</li>
+      <li><b>Master of Science in Computer Science</b>, Maharishi International University, Iowa. Projects in Spark Streaming, Kafka, HBase and a KNN movie recommender.</li>
+      <li><b>Bachelor of Science in Computer Technology</b>, University of Science and Technology, Danang, Vietnam.</li>
+    </ul>
+  </section>
+
+  <footer>Nhan Ngo · Allen, Texas · <a href="https://www.linkedin.com/in/ngonhan">LinkedIn</a> · <a href="https://github.com/ngonhan2k5">GitHub</a> · <a href="https://github.com/ngonhan2k5/her-personal-assistant-ai">Her voice assistant</a></footer>
+</div>
+
+<div id="tipbox" role="tooltip" hidden></div>
+
+<script>
+(() => {
+  // Tooltips
+  const box = document.getElementById('tipbox');
+  let active = null;
+  function render(el) {
+    const parts = el.dataset.tip.split('|');
+    box.replaceChildren();
+    if (parts.length === 1) { box.textContent = parts[0]; return; }
+    const ul = document.createElement('ul');
+    parts.forEach(t => { const li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
+    box.appendChild(ul);
+  }
+  function show(el) {
+    if (active && active !== el) active.classList.remove('on');
+    active = el; el.classList.add('on');
+    render(el); box.hidden = false;
+    const r = el.getBoundingClientRect(), b = box.getBoundingClientRect(), pad = 12;
+    const left = Math.min(Math.max(pad, r.left), window.innerWidth - b.width - pad);
+    let top = r.bottom + 8;
+    if (top + b.height > window.innerHeight - pad) top = Math.max(pad, r.top - b.height - 8);
+    box.style.left = left + 'px'; box.style.top = top + 'px';
+  }
+  function hide() { if (active) active.classList.remove('on'); active = null; box.hidden = true; }
+  document.querySelectorAll('.tip').forEach(el => {
+    el.setAttribute('aria-describedby', 'tipbox');
+    el.addEventListener('mouseenter', () => show(el));
+    el.addEventListener('mouseleave', hide);
+    el.addEventListener('focus', () => show(el));
+    el.addEventListener('blur', hide);
+    el.addEventListener('click', e => { e.stopPropagation(); active === el ? hide() : show(el); });
+  });
+  document.addEventListener('click', hide);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') hide(); });
+  window.addEventListener('scroll', () => { if (active) show(active); }, { passive: true });
+
+  // Sections, items and the index
+  const secs = [...document.querySelectorAll('.wrap > header, .wrap > section')];
+  secs.forEach(sec => { sec.classList.add('navsec'); sec.tabIndex = -1; });
+  const items = [...document.querySelectorAll('.wrap > section :is(.stat, .card > ul > li, section > ul > li, .job, .skills > div, tr:not(:first-child))')];
+  items.forEach(it => it.classList.add('navitem'));
+  const smooth = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+  let curSec = null, curItem = null;
+
+  const toc = document.getElementById('toc');
+  const tocBtns = secs.map((sec, i) => {
+    const h = sec.querySelector('h2');
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.innerHTML = '<span class="n">' + String(i).padStart(2, '0') + '</span><span></span>';
+    b.lastChild.textContent = h ? h.textContent.trim() : 'Profile';
+    b.addEventListener('click', e => { e.stopPropagation(); goSec(sec); });
+    toc.appendChild(b);
+    return b;
+  });
+  const keys = document.createElement('div');
+  keys.className = 'keys';
+  keys.textContent = '← → items · ↑ ↓ sections';
+  toc.appendChild(keys);
+
+  function visibleSecIdx() {
+    const i = secs.findIndex(x => x.getBoundingClientRect().bottom > 80);
+    return i < 0 ? secs.length - 1 : i;
+  }
+  function syncToc() {
+    const sec = curSec || secs[visibleSecIdx()];
+    tocBtns.forEach((b, i) => { const on = secs[i] === sec; b.classList.toggle('on', on); on ? b.setAttribute('aria-current', 'true') : b.removeAttribute('aria-current'); });
+  }
+  window.addEventListener('scroll', () => { if (!curSec) syncToc(); }, { passive: true });
+  function mark(sec, item) {
+    secs.forEach(x => x.classList.toggle('cur', x === sec));
+    items.forEach(x => x.classList.toggle('curitem', x === item));
+    curSec = sec; curItem = item;
+    syncToc();
+  }
+  function goItem(it) { hide(); mark(it.closest('.navsec'), it); it.scrollIntoView({ block: 'nearest', behavior: smooth }); }
+  function goSec(sec) {
+    hide();
+    mark(sec, items.find(it => sec.contains(it)) || null);
+    sec.scrollIntoView({ block: 'start', behavior: smooth });
+    sec.focus({ preventScroll: true });
+  }
+  document.addEventListener('keydown', e => {
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    const k = e.key;
+    if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(k)) return;
+    e.preventDefault();
+    const fwd = k === 'ArrowRight' || k === 'ArrowDown';
+    if (k === 'ArrowLeft' || k === 'ArrowRight') {
+      let i;
+      if (curItem) i = items.indexOf(curItem) + (fwd ? 1 : -1);
+      else {
+        const sec = curSec || secs[visibleSecIdx()];
+        const inSec = items.filter(it => sec.contains(it));
+        i = inSec.length ? items.indexOf(fwd ? inSec[0] : inSec[inSec.length - 1])
+                         : items.findIndex(it => sec.compareDocumentPosition(it) & Node.DOCUMENT_POSITION_FOLLOWING);
+      }
+      if (i >= 0 && i < items.length) goItem(items[i]);
+    } else {
+      const from = curSec ? secs.indexOf(curSec) : visibleSecIdx() - (fwd ? 1 : 0);
+      const j = from + (fwd ? 1 : -1);
+      if (j >= 0 && j < secs.length) goSec(secs[j]);
+    }
+  });
+  document.addEventListener('mousedown', e => {
+    if (toc.contains(e.target)) return;
+    const it = e.target.closest('.navitem');
+    it ? mark(it.closest('.navsec'), it) : mark(null, null);
+  });
+  syncToc();
+})();
+</script>
+</body>
+</html>
